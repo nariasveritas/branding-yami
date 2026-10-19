@@ -5,96 +5,111 @@ st.set_page_config(
     page_title="Identidad de Marca - Yamileth Ospino",
     page_icon="🌱",
     layout="wide",
-    initial_sidebar_state="expanded",
 )
 
-# Estilos CSS personalizados
+# Estilos CSS personalizados para una estética de marca en desarrollo (Sofisticada y Humana)
 st.markdown("""
     <style>
+    /* Ocultar elementos predeterminados de Streamlit para limpieza visual */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    
+    /* Tipografía y contenedor principal */
     .main-title {
-        color: #2E4A3D;
-        font-size: 2.3rem;
+        color: #2D3A34;
+        font-size: 2.2rem;
         font-weight: 700;
+        letter-spacing: -0.5px;
         margin-bottom: 0px;
     }
     .sub-title {
-        color: #557A68;
-        font-size: 1.2rem;
+        color: #5C7265;
+        font-size: 1.1rem;
         font-weight: 400;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
+    
+    /* Cajas destacadas elegantes */
     .highlight-box {
-        background-color: #F0F4F1;
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #2E4A3D;
+        background-color: #F4F6F4;
+        padding: 24px;
+        border-radius: 12px;
+        border-left: 4px solid #3B5242;
         margin-bottom: 20px;
+        color: #2D3A34;
+    }
+    
+    /* Estilo general de pestañas */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        background-color: #FAFAFA;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        height: 45px;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        color: #4A5D52;
+        font-weight: 500;
+        border: 1px solid #E2E8E4;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #3B5242 !important;
+        color: #FFFFFF !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Menú lateral
-st.sidebar.title("Navegación")
-opcion = st.sidebar.radio(
-    "Selecciona una sección:",
-    [
-        "0. Vista General",
-        "01. Hallazgo Estratégico",
-        "02. Visión y Misión",
-        "03. Valores de Marca",
-        "04. Personalidad de Marca",
-        "05. Territorio Conceptual",
-        "06. Manifiesto",
-        "07. Posicionamiento",
-        "08. Tono y Lenguaje",
-        "09. Síntesis"
-    ]
-)
-
-# Encabezado Principal
+# Encabezado Principal de Marca
 st.markdown("<h1 class='main-title'>IDENTIDAD DE MARCA</h1>", unsafe_allow_html=True)
 st.markdown("<h3 class='sub-title'>Yamileth Ospino · Psicología y acompañamiento a lo largo de la vida</h3>", unsafe_allow_html=True)
 st.divider()
 
+# Navegación horizontal mediante pestañas (Tabs)
+tabs = st.tabs([
+    "🌱 Vista General",
+    "🎯 Hallazgo",
+    "🧭 Visión y Misión",
+    "💎 Valores",
+    "✨ Personalidad",
+    "🗺️ Territorio",
+    "📜 Manifiesto",
+    "📍 Posicionamiento",
+    "💬 Tono y Lenguaje",
+    "📊 Síntesis"
+])
+
 # --- 0. VISTA GENERAL ---
-if opcion == "0. Vista General":
+with tabs[0]:
     st.markdown("<div class='highlight-box'><b>Idea estratégica central:</b><br><i>El bienestar se construye a lo largo de la vida.</i></div>", unsafe_allow_html=True)
     st.write("Documento de trabajo que sintetiza la propuesta de identidad estratégica. Su propósito es servir como base para validar la esencia, el posicionamiento y la futura expresión visual y verbal de la marca.")
     
-    st.subheader("Contenido")
-    col1, col2 = st.columns(2)
+    st.subheader("Estructura de la plataforma")
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("""
-        * **01.** Hallazgo estratégico
-        * **02.** Visión y misión
-        * **03.** Valores de marca
-        * **04.** Personalidad de marca
-        * **05.** Territorio conceptual
-        """)
+        st.markdown("**Fundamentos**\n- Hallazgo estratégico\n- Visión y misión\n- Valores de marca")
     with col2:
-        st.markdown("""
-        * **06.** Manifiesto
-        * **07.** Posicionamiento
-        * **08.** Tono y lenguaje
-        * **09.** Síntesis
-        """)
+        st.markdown("**Identidad**\n- Personalidad de marca\n- Territorio conceptual\n- Manifiesto de marca")
+    with col3:
+        st.markdown("**Expresión**\n- Posicionamiento\n- Tono y lenguaje\n- Síntesis y validación")
 
 # --- 01. HALLAZGO ESTRATÉGICO ---
-elif opcion == "01. Hallazgo Estratégico":
+with tabs[1]:
     st.header("01. Hallazgo estratégico")
     st.write("Yamileth entiende la psicología no únicamente como una intervención cuando aparece un problema, sino como un acompañamiento que puede aportar en distintas etapas y circunstancias de la vida. La propuesta combina escucha sin juicio, preparación profesional, orientación y herramientas para que cada persona pueda comprender mejor lo que vive y tomar sus propias decisiones.")
     
     st.subheader("Los cuatro pilares")
     col1, col2 = st.columns(2)
     with col1:
-        st.info("**Escucha sin juicio:** crear un espacio en el que la persona pueda expresarse con confianza y respeto.")
-        st.info("**Conocimiento profesional:** sostener el acompañamiento en preparación, actualización y responsabilidad ética.")
+        st.info("**Escucha sin juicio:** Crear un espacio en el que la persona pueda expresarse con confianza y respeto.")
+        st.info("**Conocimiento profesional:** Sostener el acompañamiento en preparación, actualización y responsabilidad ética.")
     with col2:
-        st.info("**Autonomía y orientación:** facilitar comprensión y herramientas, sin imponer respuestas ni decidir por la persona.")
-        st.info("**Prevención y continuidad:** reconocer que el cuidado psicológico puede ser relevante antes de una crisis y a lo largo de la vida.")
+        st.info("**Autonomía y orientación:** Facilitar comprensión y herramientas, sin imponer respuestas ni decidir por la persona.")
+        st.info("**Prevención y continuidad:** Reconocer que el cuidado psicológico puede ser relevante antes de una crisis y a lo largo de la vida.")
 
 # --- 02. VISIÓN Y MISIÓN ---
-elif opcion == "02. Visión y Misión":
+with tabs[2]:
     st.header("02. Visión y misión")
     
     st.subheader("Visión propuesta")
@@ -106,7 +121,7 @@ elif opcion == "02. Visión y Misión":
     st.markdown("<div class='highlight-box'>Brindar acompañamiento psicológico profesional, empático y basado en evidencia, que permita a las personas comprender sus pensamientos y emociones, afrontar los desafíos de las distintas etapas de la vida y desarrollar herramientas para tomar sus propias decisiones y mejorar su bienestar.</div>", unsafe_allow_html=True)
 
 # --- 03. VALORES DE MARCA ---
-elif opcion == "03. Valores de Marca":
+with tabs[3]:
     st.header("03. Valores de marca")
     valores = {
         "Empatía y respeto": "Escuchar con atención, reconocer la historia de cada persona y evitar juicios o etiquetas.",
@@ -116,11 +131,11 @@ elif opcion == "03. Valores de Marca":
         "Prevención y continuidad": "Promover una mirada del bienestar psicológico que no se limite a responder a una crisis puntual."
     }
     for val, desc in valores.items():
-        with st.expander(f"📌 {val}", expanded=True):
+        with st.expander(f"📌 {val}", expanded=False):
             st.write(desc)
 
 # --- 04. PERSONALIDAD DE MARCA ---
-elif opcion == "04. Personalidad de Marca":
+with tabs[4]:
     st.header("04. Personalidad de marca")
     st.write("La marca puede expresarse como una profesional cercana y confiable, con calidez humana y una base científica clara. La cercanía debe transmitir seguridad sin borrar los límites del vínculo profesional.")
     
@@ -133,7 +148,7 @@ elif opcion == "04. Personalidad de Marca":
     """)
 
 # --- 05. TERRITORIO CONCEPTUAL ---
-elif opcion == "05. Territorio Conceptual":
+with tabs[5]:
     st.header("05. Territorio conceptual")
     
     st.subheader("Territorio principal recomendado")
@@ -154,7 +169,7 @@ elif opcion == "05. Territorio Conceptual":
     st.table(tabla_arq)
 
 # --- 06. MANIFIESTO ---
-elif opcion == "06. Manifiesto":
+with tabs[6]:
     st.header("06. Manifiesto de marca")
     st.markdown("""
     > **La salud mental importa en cada etapa de la vida.**
@@ -173,7 +188,7 @@ elif opcion == "06. Manifiesto":
     """)
 
 # --- 07. POSICIONAMIENTO ---
-elif opcion == "07. Posicionamiento":
+with tabs[7]:
     st.header("07. Posicionamiento")
     
     st.subheader("Declaración de posicionamiento propuesta")
@@ -182,7 +197,7 @@ elif opcion == "07. Posicionamiento":
     st.write("La promesa no es resolver la vida de la persona ni garantizar resultados rápidos; es ofrecer un espacio profesional para comprender, explorar opciones y desarrollar recursos propios.")
 
 # --- 08. TONO Y LENGUAJE ---
-elif opcion == "08. Tono y Lenguaje":
+with tabs[8]:
     st.header("08. Tono y lenguaje")
     
     tabla_tono = [
@@ -202,8 +217,8 @@ elif opcion == "08. Tono y Lenguaje":
         st.error("**Evitar:**\n- “Te voy a decir qué tienes que hacer”.\n- “Vas a cambiar tu vida en pocas sesiones”.")
 
 # --- 09. SÍNTESIS ---
-elif opcion == "09. Síntesis":
-    st.header("09. Síntesis y decisiones por validar")
+with tabs[9]:
+    st.header("09. Síntesis")
     
     st.subheader("Propuesta de síntesis")
     tabla_sintesis = [
